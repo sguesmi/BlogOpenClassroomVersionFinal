@@ -1,0 +1,16 @@
+<h3>{{postItem.title}}
+  <i class="pull-right text-primary small">
+    {{ postItem.createdAt | date: 'd/MM/y à hh:mm:ss' | lowercase}}
+  </i>
+</h3>
+<p>{{postItem.content}}</p>
+<p class="text-right text-primary">Likes : {{postItem.loveIts}}</p>
+
+<!--
+<h3>{{postTitle}}
+  <i class="pull-right text-primary">
+    {{ postCreatedAt | date: 'd/MM/y à hh:mm:ss' | uppercase}}
+  </i>
+</h3>
+<p>{{postContent}}</p>
+-->

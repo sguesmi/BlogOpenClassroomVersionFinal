@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2" >
+    <h2>Posts :
+      <a *ngIf="postList != ''" role="button" class="pull-right small" routerLink="/posts" (click)="onDeleteAllPosts()">
+        <span class="glyphicon glyphicon-minus-sign small"></span><u class="text-primary small"> Delete all posts</u>&nbsp;
+      </a>
+      <a class="pull-right small" routerLink="/new-post">
+        <span class="glyphicon glyphicon-plus-sign small"></span><u class="text-primary small"> New post</u>&nbsp;
+      </a>
+
+    </h2>
+    <ul class="list-group" *ngIf="postList">
+      <li *ngFor="let post of postList; let i = index;"
+          [ngClass]="{'list-group-item': true,
+                    'list-group-item-default':post.loveIts == 0,
+                    'list-group-item-success':post.loveIts > 0,
+                    'list-group-item-danger':post.loveIts < 0}" >
+
+          <app-post-list-item [postItem]="post"> </app-post-list-item>
+
+        <!--<app-post-list-item [postTitle]="post.title" [postContent]="post.content"
+                            [postLoveIts]="post.loveIts" [postCreatedAt]="post.createdAt">
+        </app-post-list-item>-->
+
+        <button class="btn btn-success" (click)="onLoveIt(i)">
+          LoveIt
+        </button>
+        <button class="btn btn-warning" (click)="onDontLoveIt(i)">
+          DontLoveIt
+        </button>
+        <button class="btn btn-danger pull-right" (click)="onDelete(i)">
+          DeleteIt
+        </button>
+       
+
+      </li>
+    </ul>
+  </div>
+</div>
+
